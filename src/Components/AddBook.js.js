@@ -11,6 +11,7 @@ export const bookSchema = yup.object().shape({
 
 function AddBook() {
   const context = useContext(userContext);
+  const { books, setBooks } = context; 
   const [successMessage, setSuccessMessage] = useState('');
 
   const initialValues = {
