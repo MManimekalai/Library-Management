@@ -25,7 +25,7 @@ function AddBook() {
       author: values.author,
       genre: values.genre,
     };
-    context.setBooks([...context.books, newBook]);
+    setBooks([...books, newBook]);
     setSuccessMessage('Book added successfully!');
     resetForm();
   };
