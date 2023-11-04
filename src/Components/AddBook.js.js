@@ -26,6 +26,7 @@ function AddBook() {
       author: values.author,
       genre: values.genre,
     };
+    console.log('newBook', newBook)
     setBooks([...books, newBook]);
     setSuccessMessage('Book added successfully!');
     resetForm();
