@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { userContext, BookContext } from '../Context/ContextComponent';
+import { useNavigate } from 'react-router-dom';
 
 export const bookSchema = yup.object().shape({
   title: yup.string().required('Title is required'),
@@ -14,6 +15,8 @@ function AddBook() {
   const bookContextData  = useContext(BookContext);
   const { books, setBooks } = bookContextData; 
   const [successMessage, setSuccessMessage] = useState('');
+
+  const navigate = useNavigate();
 
   const initialValues = {
     title: '',
@@ -33,8 +36,10 @@ function AddBook() {
     console.log('books', books)
     
     setSuccessMessage('Book added successfully!');
-    alert(successMessage);
+    alert('Book added successfully!');
     resetForm();
+
+    navigate('/bookslist');
   };
 
   return (
