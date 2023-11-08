@@ -33,6 +33,7 @@ function AddBook() {
     console.log('books', books)
     
     setSuccessMessage('Book added successfully!');
+    alert(successMessage);
     resetForm();
   };
 
