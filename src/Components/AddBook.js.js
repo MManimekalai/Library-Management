@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import { userContext } from '../Context/ContextComponent';
+import { userContext, BookContext } from '../Context/ContextComponent';
 
 export const bookSchema = yup.object().shape({
   title: yup.string().required('Title is required'),
@@ -11,7 +11,8 @@ export const bookSchema = yup.object().shape({
 
 function AddBook() {
   const context = useContext(userContext);
-  const { books, setBooks } = context; 
+  const bookContextData  = useContext(BookContext);
+  const { books, setBooks } = bookContextData; 
   const [successMessage, setSuccessMessage] = useState('');
 
   const initialValues = {
